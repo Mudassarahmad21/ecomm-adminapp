@@ -1,5 +1,5 @@
 import { Fragment, useState, useContext, useEffect } from "react";
-import { Routes, Route, Outlet} from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 
 /// Styles
 import "./index.css";
@@ -19,6 +19,7 @@ import SparklineChart from "./components/charts/Sparkline";
 import ApexChart from "./components/charts/apexcharts";
 import ChartJs from "./components/charts/Chartjs";
 import RechartJs from "./components/charts/rechart";
+import ProductList from "./components/Appsmenu/Shop/ProductList/ProductList";
 
 /// Pages
 import Registration from "./pages/Registration";
@@ -30,6 +31,16 @@ import Error404 from "./pages/Error404";
 import Error500 from "./pages/Error500";
 import Error503 from "./pages/Error503";
 
+/// Product List
+import ProductGrid from "./components/Appsmenu/Shop/ProductGrid/ProductGrid";
+import ProductDetail from "./components/Appsmenu/Shop/ProductGrid/ProductDetail";
+import Checkout from "./components/Appsmenu/Shop/Checkout/Checkout";
+import Invoice from "./components/Appsmenu/Shop/Invoice/Invoice";
+import ProductOrder from "./components/Appsmenu/Shop/ProductOrder";
+import Customers from "./components/Appsmenu/Shop/Customers/Customers";
+
+
+
 const Markup = () => {
   const allroutes = [
     { url: "all-ticket", component: <AllTicket /> },
@@ -37,6 +48,16 @@ const Markup = () => {
     { url: "chart-chartjs", component: <ChartJs /> },
     { url: "chart-apexchart", component: <ApexChart /> },
     { url: "chart-rechart", component: <RechartJs /> },
+
+    /// Shop
+         { url: "ecom-product-grid", component: <ProductGrid /> },
+         { url: "ecom-product-list", component: <ProductList /> },
+         { url: "ecom-product-detail", component: <ProductDetail /> },
+         { url: "ecom-product-order", component: <ProductOrder /> },
+         { url: "ecom-checkout", component: <Checkout /> },
+         { url: "ecom-invoice", component: <Invoice /> },
+         { url: "ecom-product-detail", component: <ProductDetail /> },
+         { url: "ecom-customers", component: <Customers /> },
   ];
 
   return (
@@ -48,12 +69,16 @@ const Markup = () => {
         <Route path="page-error-404" element={<Error404 />} />
         <Route path="page-error-500" element={<Error500 />} />
         <Route path="page-error-503" element={<Error503 />} />
+
+      
+
+        <Route path="product-list" element={<ProductList />} />
         <Route path="page-forgot-password" element={<ForgotPassword />} />
         <Route path="page-register" element={<Registration />} />
         <Route path="page-login" element={<Login />} />
 
         <Route element={<MainLayout2 />}>
-          <Route path="" element={<Home />}  />
+          <Route path="" element={<Home />} />
           <Route path="/dashboard" element={<Home />} />
         </Route>
 
